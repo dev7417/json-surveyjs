@@ -1,14 +1,15 @@
 import { IoMdRadioButtonOn } from 'react-icons/io';
 import { FcRating } from 'react-icons/fc'
 import { TfiCheckBox } from 'react-icons/tfi'
-import { BiServer,BiMenuAltLeft, } from 'react-icons/bi'
+import { BiServer, BiMenuAltLeft, } from 'react-icons/bi'
 import { GoFileSubmodule } from 'react-icons/go'
 import { ImFilePicture } from 'react-icons/im'
-import {CiViewList,CiServer,CiSquarePlus,CiGrid32,CiMoneyCheck1} from 'react-icons/ci'
-import {BsFullscreen,BsUiRadiosGrid,BsGrid3X3Gap,BsUiRadios,BsCodeSlash} from 'react-icons/bs'
-import {TbMathFunction} from 'react-icons/tb'
-import {RiImageFill} from 'react-icons/ri'
-import {FaSignature} from 'react-icons/fa'
+import { CiViewList, CiServer, CiSquarePlus, CiGrid32, CiMoneyCheck1 } from 'react-icons/ci'
+import { BsFullscreen, BsUiRadiosGrid, BsGrid3X3Gap, BsUiRadios, BsCodeSlash, BsStar, BsReverseLayoutTextWindowReverse } from 'react-icons/bs'
+import { TbMathFunction } from 'react-icons/tb'
+import {VscFileSymlinkDirectory} from 'react-icons/vsc'
+import { RiImageFill } from 'react-icons/ri'
+import { FaSignature } from 'react-icons/fa'
 export const survey = [
     {
         title: 'Designer',
@@ -20,7 +21,7 @@ export const survey = [
             },
             {
                 title: 'Rating',
-                icons: <FcRating />
+                icons: <BsStar />
             },
             {
                 title: 'Checkbox',
@@ -28,7 +29,7 @@ export const survey = [
             },
             {
                 title: 'Dropdown',
-                icons: <IoMdRadioButtonOn />
+                icons: <BsReverseLayoutTextWindowReverse />
             },
             {
                 title: 'Tag Box',
@@ -40,7 +41,7 @@ export const survey = [
             },
             {
                 title: 'File',
-                icons: <GoFileSubmodule />
+                icons: <VscFileSymlinkDirectory />
             },
             {
                 title: 'Image Picker',

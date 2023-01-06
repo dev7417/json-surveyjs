@@ -63,7 +63,7 @@ export default function Header() {
 
                 </div>
             </div>
-            <div className=''>
+            <div>
                 {component}
             </div>
         </>
