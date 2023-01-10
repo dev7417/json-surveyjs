@@ -64,13 +64,13 @@ export const survey = [
             },
             {
                 title: 'Panel',
-                icons: <BsFullscreen />
-            },
-            {
-                title: 'Dynamic Panel',
-                icons: <CiSquarePlus />
-            }, {
-                title: 'Single-Choice Matrix',
+                    icons: <BsFullscreen />
+                },
+                {
+                    title: 'Dynamic Panel',
+                    icons: <CiSquarePlus />
+                }, {
+                    title: 'Single-Choice Matrix',
                 icons: <BsUiRadiosGrid />
             },
             {

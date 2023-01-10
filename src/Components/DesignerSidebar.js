@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { designerData } from '../Redux-ToolKit/Surveyslice'
+import CenterDesigner from './CenterDesigner'
 import './header.css'
 
 export default function DesignerSidebar({ props }) {
+    const reduxData = useSelector((state) => state.surveyDataReducer.designer)
+    console.log(reduxData)
+
+    useEffect(() => {
+        dispatch(() => designerData())
+    }, [])
+    const dispatch = useDispatch()
     return (
         <div className='main-icons row'>
             <div className="col-md-3">
                 {
-                    props.map((data) => {
+                    reduxData.map((data) => {
                         console.log(data)
                         return (
                             <>
@@ -31,6 +41,9 @@ export default function DesignerSidebar({ props }) {
                         )
                     })
                 }
+            </div>
+            <div className="col-md-6">
+                <CenterDesigner/>
             </div>
         </div>
     )

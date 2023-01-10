@@ -36,8 +36,8 @@
 
 .main-icons {
     background-color: #eee;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     margin-left: 20px;
 }
 
@@ -49,7 +49,55 @@
     justify-content: center;
     align-items: center;
 }
+.designer_main{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+.designer_main .designer_addBtn{
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+  
 
+}
+.designer_addbtn-2{
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.designer_addbtn-2:hover{
+    border: 2px solid #18B394;
+    border-radius: 5px;
+}
+.designer_addbtn-2 .des-btn{
+    /* display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center; */
+    padding-left: 20px;
+    color: var(--primary, #19b394);
+}
+.designer_content{
+}
+.designer_addBtn .icons{
+    /* appearance: none;
+    display: flex;
+    height: calc(5 * var(--base-unit, 8px));
+    padding: calc(1 * var(--base-unit, 8px));
+    box-sizing: border-box;
+    border: none;
+    border-radius: 2px;
+    background-color: transparent;
+    cursor: pointer;
+    margin-inline-end: calc(1 * var(--base-unit, 8px));
+    outline: none; */
+    border: none;
+    color: grey;
+    /* display: flex;
+    justify-content: flex-end; */
+}
 .icons:hover {
     background-color: #ffffff;
     border-top-left-radius: 25px;

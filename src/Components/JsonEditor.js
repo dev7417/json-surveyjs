@@ -1,12 +1,14 @@
 import React from 'react'
 import { survey } from './Survey'
+import { useSelector, useDispatch } from 'react-redux'
 
 export default function JsonEditor() {
-  return (
+  const jsonEditor = useSelector((state) => state.pagesdataReducer)
+   return (
     <>
-       <pre>
+       <pre contentEditable >
        {
-            JSON.stringify(survey, null, 1)
+            JSON.stringify(jsonEditor, null, 1)
         }
 
        </pre>
