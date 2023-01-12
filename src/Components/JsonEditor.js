@@ -4,15 +4,15 @@ import { useSelector, useDispatch } from 'react-redux'
 
 export default function JsonEditor() {
   const jsonEditor = useSelector((state) => state.pagesdataReducer)
-   return (
+  return (
     <>
-       <pre contentEditable >
-       {
-            JSON.stringify(jsonEditor, null, 1)
+      <pre contentEditable>
+        {
+          JSON.stringify(jsonEditor, null, 1)
         }
 
-       </pre>
-       
+      </pre>
+
     </>
   )
 }

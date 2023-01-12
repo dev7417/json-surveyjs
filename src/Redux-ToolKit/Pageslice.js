@@ -9,18 +9,33 @@ export const pageSlice = createSlice({
     name: "pagesdata",
     initialState,
     reducers: {
-        pagesdata(state = initialState, action) {
+        titledata(state = initialState, action) {
             state.push({
-
-                name: "page 1",
-                elements: [{
-                    type: "text",
-                    name: "question 1"
-                }]
+                surveytitle: 'title',
+                description: 'description',
+                pagesData: [
+                    {
+                        name: 'page 1',
+                        description: 'description',
+                        elements: [{
+                            type: "text",
+                            questions: "question 1"
+                        }],
+                    },
+                    {
+                        name: 'page 2',
+                        description: 'description'
+                    }
+                ]
+            })
+        },
+        Questions(state = initialState, action) {
+            state.push({
 
             })
         }
+
     }
 })
-export const { pagesdata } = pageSlice.actions
+export const { titledata, Questions } = pageSlice.actions
 export default pageSlice.reducer
