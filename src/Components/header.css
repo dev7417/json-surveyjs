@@ -70,6 +70,9 @@ li {
     justify-content: center;
     align-items: center;
 }
+.icons-div .icons:hover{
+    cursor: pointer;
+}
 
 .designer_main {
     position: absolute;
@@ -88,6 +91,13 @@ li {
 .dropdown_data {
     display: flex;
     align-items: center;
+}
+.dropdown_data:hover{
+    cursor: pointer;
+    background-color: rgb(211, 209, 209);
+}
+.main_pages{
+    width: 80%;
 }
 
 .dropdown_data .dropdown_icons {
@@ -258,6 +268,7 @@ li {
 .pages_data {
     display: flex;
     flex-direction: column;
+    margin: 0px 30px;
 }
 .pages_data .span-1 .span1:focus{
     outline: 2px solid #18B394;
@@ -282,6 +293,61 @@ li {
 }
 .pages_data .span-1 .span1:hover{
     background-color: rgb(231, 229, 229);
+}
+.question_box{
+    box-shadow: -11px -7px 8px -4px rgb(0 0 0 / 10%);
+
+    padding: 10px;
+    margin-top: 10px;
+    /* background-color: rgb(167, 154, 154); */
+}
+.question_box:hover{
+    background-color: #ffff;
+    border-radius: 4px;
+    border: 2px solid rgb(196, 180, 173);
+}
+.question_box:focus{
+    border: 2px solid rgb(255,152,19);
+}
+.drag_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+}
+
+.questions{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* align-items: center; */
+}
+.questions input[type=text] {
+    border: 4px solid rgb(230, 227, 227);
+    border-radius: 5px;  
+}
+.add_question_btn{
+    position: relative;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add_question_btn:hover{
+    border-radius: 4px;
+    border: 2px solid #18B394;
+}
+.add_question_btn .btn button{
+    border: none;
+}
+.add_icons{
+    position: absolute;
+    right: 30px;
+}
+
+.question_div{
+    
 }
 
 /* Question Component Css Ends Here */

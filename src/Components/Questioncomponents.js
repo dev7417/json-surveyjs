@@ -1,41 +1,81 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { BsGrid3X2Gap } from 'react-icons/bs'
+import { AiOutlineEllipsis } from 'react-icons/ai'
 import "./header.css";
 import Pagesdata from "./Pagesdata";
-export default function Questioncomponents() {
+import { Questions } from "../Redux-ToolKit/Pageslice";
+import { useDispatch } from "react-redux";
+export default function Questioncomponents(props) {
+  console.log(props);
+  const dispatch = useDispatch()
   const defaultdata = useSelector((state) => state.pagesdataReducer);
-  const innerQues = defaultdata[0].pagesData[0].elements;
-  console.log(innerQues)
-  console.log(defaultdata[0].pagesData);
-  console.log(defaultdata[0].pagesData[0].elements);
+  const innerQues = defaultdata[0].pages;
+  console.log(innerQues);
+  console.log(defaultdata[0].pages);
+  console.log(defaultdata[0].pages[0].elements);
+  console.log(Questions)
   return (
-    <>
-      {defaultdata[0].pagesData.map((pages, index) => {
-        <>
-          <div className="main_pages" tabIndex={12345} key={index}>
-            <div className="pages">
-              <div className="pages_data">
-                <div className="span-1">
-                  <span className="span1" contentEditable>
-                    {pages.name}
-                  </span>
-                </div>
-                <div className="span-2 my-2">
-                  <span className="span2" contentEditable>
-                    {pages.description}
-                  </span>
-                </div>
-                  <Pagesdata props={pages.elements}/>
-                <div>
-                {/* {pages.elements.map((item) => {
-                  console.log(item.type);
-                })} */}
+    <div>
+      <>
+        {innerQues.map((items, index) => {
+          console.log(items);
+
+          return (
+            <>
+              <div className="main_pages" tabIndex={12345} key={index}>
+                <div className="pages">
+                  <div className="pages_data">
+                    <div className="span-1">
+                      <span className="span1" contentEditable>
+                        {items.name}
+                      </span>
+                    </div>
+                    <div className="span-2 my-2">
+                      <span className="span2" contentEditable>
+                        description
+                      </span>
+                    </div>
+
+                    {items.elements.map((data) => (
+                      // console.log(data)
+                      <div className="question_div">
+                        <div className="question_box" tabIndex={12345}>
+                          <div className="drag_icon">
+                            <BsGrid3X2Gap />
+                          </div>
+                          <div className="questions">
+                            <p>{data.name1}</p>
+                            <input type={data.type1} disabled />
+                          </div>
+                        </div>
+                        <div className="add_question_btn my-2">
+                          <div className="btn">
+                            <button>Add Questions</button>
+                          </div>
+                          <div className="add_icons" onClick={()=>dispatch(Questions())}>
+                            <AiOutlineEllipsis />
+                          </div>
+                        </div>
+
+                      </div>
+                    ))}
+
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </>
+            </>
+          );
+        })}
+        {/* <div>
+      {props.map((pages, index) => {
+        console.log(pages.name);
+        <>
+          
+        </>;
       })}
-    </>
+      </div> */}
+      </>
+    </div>
   );
 }

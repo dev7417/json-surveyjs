@@ -13,25 +13,35 @@ export const pageSlice = createSlice({
             state.push({
                 surveytitle: 'title',
                 description: 'description',
-                pagesData: [
+                "pages": [
                     {
-                        name: 'page 1',
-                        description: 'description',
-                        elements: [{
-                            type: "text",
-                            questions: "question 1"
-                        }],
+                        "name": "page1",
+                        "elements": [
+                            {
+                                "type1": "text",
+                                "name1": "question1"
+                            },
+                            {
+                                "type1": "text",
+                                "name1": "question2"
+                            },
+                        ]
                     },
-                    {
-                        name: 'page 2',
-                        description: 'description'
-                    }
                 ]
             })
         },
         Questions(state = initialState, action) {
             state.push({
-
+                "elements": [
+                    {
+                        "type1": "text",
+                        "name1": "question3"
+                    },
+                    {
+                        "type1": "text",
+                        "name1": "question4"
+                    },
+                ]
             })
         }
 

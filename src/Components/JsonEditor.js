@@ -6,7 +6,7 @@ export default function JsonEditor() {
   const jsonEditor = useSelector((state) => state.pagesdataReducer)
   return (
     <>
-      <pre contentEditable>
+      <pre contentEditable style={{fontSize:'8px'}}>
         {
           JSON.stringify(jsonEditor, null, 1)
         }

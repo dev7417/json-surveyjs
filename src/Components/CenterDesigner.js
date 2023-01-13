@@ -28,10 +28,10 @@ export default function CenterDesigner() {
       <div className={!pagessdata ? "designer_main" : ""}>
         {!pagessdata ? (
           <>
-            <div className="designer_content">
+            <div className="designer_content" trap icons>
               <p>
-                The survey is empty. Drag an element from the toolbox or click
-                the button below
+                The survey is empty. DrDynamic Panel ag an element from the
+                toolbox or click the button below
               </p>
             </div>
             <div className="designer_addBtn">
