@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { titledata, Questions } from "../Redux-ToolKit/Pageslice";
+import { titledata, Questions,duplicatePage } from "../Redux-ToolKit/Pageslice";
 import { AiOutlineEllipsis } from "react-icons/ai";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
@@ -30,7 +30,7 @@ export default function CenterDesigner() {
           <>
             <div className="designer_content" trap icons>
               <p>
-                The survey is empty. DrDynamic Panel ag an element from the
+                The survey is empty. Drag an element Panel ag an element from the
                 toolbox or click the button below
               </p>
             </div>
@@ -43,6 +43,8 @@ export default function CenterDesigner() {
                 >
                   Add Question
                 </span>
+      
+
                 <div ref={ref}>
                   <Overlay
                     show={show}

@@ -4,9 +4,10 @@ import { useSelector, useDispatch } from 'react-redux'
 
 export default function JsonEditor() {
   const jsonEditor = useSelector((state) => state.pagesdataReducer)
+  console.log(jsonEditor)
   return (
     <>
-      <pre contentEditable style={{fontSize:'8px'}}>
+      <pre contentEditable style={{ fontSize: '10px' }}>
         {
           JSON.stringify(jsonEditor, null, 1)
         }
