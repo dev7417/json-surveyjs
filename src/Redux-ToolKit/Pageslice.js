@@ -7,8 +7,23 @@ import { useState } from "react";
 // const Clone = structuredClone(pages[0].elements);
 // console.log(Clone)
 
-const initialState = []
 const id = 1;
+const initialState = [
+    // "pages": [
+    //     {
+    //         "name": "page1",
+    //         "elements": [
+    //             {
+    //                 id: `${id}`,
+    //                 "type": "text",
+    //                 "name": `question${id}`,
+
+    //             },
+
+    //         ]
+    //     },
+    // ]
+]
 
 
 // let pgesData = [{
@@ -40,6 +55,7 @@ export const pageSlice = createSlice({
                         name: "page1",
                         elements: [
                             {
+                                id: `${id}`,
                                 type: "text",
                                 name: `question${id}`,
 
@@ -67,24 +83,29 @@ export const pageSlice = createSlice({
             // state.push(...initialState)
             // state.push(pages[0].elements[0].push({"type1":"text", "name1":`question${action.payload}`}))
             // state.push([pages.elements.push({"type":"text","name":"question"})])
-            // state.push(
-            //     pages[0].elements[0].push({
-            //         "type":"text",
-            //         "name": `question ${action.payload}`
-            //     })
-            // )
-            //    state.push([...state,{pages:[...pages,{elements:[...elements,{name:'new page'}]}]}])
+            // state.push(objectements,{name:'new page'}]}]}])
             state[0].pages[0].elements.push({
+                id: `${action.payload}`,
                 type: "text",
                 name: `question${action.payload}`,
             })
-
-
         },
+
+        deleteBox(state = initialState, action) {
+            console.log(action.payload)
+            const newData = state[0].pages[0].elements.filter((item, id) => {
+                console.log({ item, id })
+                return (
+                   id !== action.payload
+                )
+            })
+            console.log("===============================>", newData)
+            state[0].pages[0].elements.push(newData)
+        }
         // duplicatePage(state = initialState, action){
-            
+
         // }
     }
 })
-export const { titledata, Questions } = pageSlice.actions
+export const { titledata, Questions, deleteBox } = pageSlice.actions
 export default pageSlice.reducer
