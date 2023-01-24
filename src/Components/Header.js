@@ -5,6 +5,7 @@ import './header.css'
 import DesignerSidebar from './DesignerSidebar'
 import Logic from './Logic'
 import JsonEditor from './JsonEditor'
+import Preview from './Preview'
 
 
 export default function Header() {
@@ -22,6 +23,7 @@ export default function Header() {
             case "Preview":
                 console.log(data.title)
                 // setItem(data.content);
+                setComponent(<Preview/>)
                 break;
             case "Logic":
                 setComponent(<Logic />)

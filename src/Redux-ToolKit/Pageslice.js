@@ -7,23 +7,28 @@ import { useState } from "react";
 // const Clone = structuredClone(pages[0].elements);
 // console.log(Clone)
 
+
 const id = 1;
 const initialState = [
-    // "pages": [
-    //     {
-    //         "name": "page1",
-    //         "elements": [
-    //             {
-    //                 id: `${id}`,
-    //                 "type": "text",
-    //                 "name": `question${id}`,
+    // {
+    //     "pages": [
+    //         {
+    //             "name": "page1",
+    //             id:1,
+    //             "elements": [
+    //                 {
+    //                     id: `${id}`,
+    //                     "type": "text",
+    //                     "name": `question${id}`,
 
-    //             },
+    //                 },
 
-    //         ]
-    //     },
-    // ]
+    //             ]
+    //         },
+    //     ]
+    // }
 ]
+
 
 
 // let pgesData = [{
@@ -52,12 +57,13 @@ export const pageSlice = createSlice({
 
                 pages: [
                     {
-                        name: "page1",
+                        name: "page",
+                        // id: 1,
                         elements: [
                             {
-                                id: `${id}`,
+                                id: 1,
                                 type: "text",
-                                name: `question${id}`,
+                                name: "question",
 
                             },
 
@@ -68,6 +74,9 @@ export const pageSlice = createSlice({
         },
         // Questions(state = initialState, action, titledata) {
         Questions(state = initialState, action) {
+            const index = action.payload.index;
+            const increment = action.payload.increment;
+            const counting = action.payload.count.current;
 
             // const nestedData = state.pages.elements;
             // console.log("======================= "type1": "text",
@@ -84,28 +93,32 @@ export const pageSlice = createSlice({
             // state.push(pages[0].elements[0].push({"type1":"text", "name1":`question${action.payload}`}))
             // state.push([pages.elements.push({"type":"text","name":"question"})])
             // state.push(objectements,{name:'new page'}]}]}])
-            state[0].pages[0].elements.push({
-                id: `${action.payload}`,
-                type: "text",
-                name: `question${action.payload}`,
+            state[0].pages[index].elements.push({
+                id: increment,
+                type: 'text',
+                name: 'question'
+
             })
         },
 
         deleteBox(state = initialState, action) {
             console.log(action.payload)
-            const newData = state[0].pages[0].elements.filter((item, id) => {
-                console.log({ item, id })
-                return (
-                   id !== action.payload
-                )
-            })
-            console.log("===============================>", newData)
-            state[0].pages[0].elements.push(newData)
-        }
-        // duplicatePage(state = initialState, action){
 
-        // }
+            state[0].pages[action.payload.index].elements.splice(action.payload.ind, 1)
+
+
+        },
+        duplicatePage(state = initialState, action) {
+
+            const newpage = structuredClone(action.payload);
+            console.log(newpage)
+            state[0].pages.push(newpage)
+            console.log(newpage)
+        },
+        deleteMainBox(state = initialState, action) {
+            state[0].pages.splice(action.payload, 1)
+        }
     }
 })
-export const { titledata, Questions, deleteBox } = pageSlice.actions
+export const { titledata, Questions, deleteBox, duplicatePage, deleteMainBox } = pageSlice.actions
 export default pageSlice.reducer
