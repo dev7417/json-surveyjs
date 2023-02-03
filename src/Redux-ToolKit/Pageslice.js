@@ -1,51 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { survey } from "../Components/Survey";
 import { pages } from "../Components/Page"
 import { useState } from "react";
-// console.log(pages)
-
-// const deepClone = JSON.parse(JSON.stringify(pages))
-// const Clone = structuredClone(pages[0].elements);
-// console.log(Clone)
 
 
 const id = 1;
 const initialState = [
-    // {
-    //     "pages": [
-    //         {
-    //             "name": "page1",
-    //             id:1,
-    //             "elements": [
-    //                 {
-    //                     id: `${id}`,
-    //                     "type": "text",
-    //                     "name": `question${id}`,
+    // components:"hello"
 
-    //                 },
+    {
+        pages: [
+            {
+                name: "page",
+                id: 1,
+                elements: [
+                    {
+                        id: 1,
+                        type: "text",
+                        name: 'question',
 
-    //             ]
-    //         },
-    //     ]
-    // }
+                    },
+
+                ]
+            },
+        ]
+    }
 ]
 
 
 
-// let pgesData = [{
-//     "pages": [
-//         {
-//             "name": "page1",
-//             "elements": [
-//                 {
-//                     "type1": "text",
-//                     "name1": `question${id}`,
-
-//                 },
-
-//             ]
-//         },
-//     ]
-// }]
 
 
 export const pageSlice = createSlice({
@@ -53,52 +36,46 @@ export const pageSlice = createSlice({
     initialState,
     reducers: {
         titledata(state = initialState, action) {
-            state.push({
+            console.log(action.payload, "====================================================================>")
+            // const page = action.payload.pageIncrement
 
-                pages: [
-                    {
-                        name: "page",
-                        // id: 1,
-                        elements: [
-                            {
-                                id: 1,
-                                type: "text",
-                                name: "question",
+            //   state.push({  pages: [
+            //         {
+            //             name:`page${id}`,
+            //             // id: 1,
+            //             elements: [
+            //                 {
+            //                     id: 1,
+            //                     type: "text",
+            //                     name: "question",
 
-                            },
+            //                 },
 
-                        ]
+            //             ]
 
-                    }]
-            })
+            //         }]
+            //     })
+
         },
         // Questions(state = initialState, action, titledata) {
         Questions(state = initialState, action) {
+            console.log(action.payload)
             const index = action.payload.index;
             const increment = action.payload.increment;
-            const counting = action.payload.count.current;
+            // const count = action.payload.count;
 
-            // const nestedData = state.pages.elements;
-            // console.log("======================= "type1": "text",
-            // "name1": `question${id}`,
-            // description: 'description',
-            //     type: 'radio',
-            //     name: 'question'
-            // })  
+            // const sideData = action.payload.sideData;
+            // const mainElem = action.payload.sideData;
 
-            // console.log("=======================================>", deepClone[p]
-            // state.push(...pages, [{ elements: [{ "type1": "text", "name1": `question${action.payload}`}] }]) 
-            // state.push(...state, state.pages.push({ "type1": "text", "name1": `question${action.payload}`}))
-            // state.push(...initialState)
-            // state.push(pages[0].elements[0].push({"type1":"text", "name1":`question${action.payload}`}))
-            // state.push([pages.elements.push({"type":"text","name":"question"})])
-            // state.push(objectements,{name:'new page'}]}]}])
+
             state[0].pages[index].elements.push({
                 id: increment,
-                type: 'text',
+                type: action.payload.Data || "text",
                 name: 'question'
 
             })
+
+
         },
 
         deleteBox(state = initialState, action) {
@@ -110,15 +87,41 @@ export const pageSlice = createSlice({
         },
         duplicatePage(state = initialState, action) {
 
-            const newpage = structuredClone(action.payload);
+            const newpage = structuredClone(action.payload.newItem);
             console.log(newpage)
             state[0].pages.push(newpage)
-            console.log(newpage)
+            console.log({ ...newpage })
         },
+        changeType(state = initialState, action) {
+            state[0].pages[action.payload.index].elements[action.payload.ind].type = action.payload.title
+        },
+
         deleteMainBox(state = initialState, action) {
             state[0].pages.splice(action.payload, 1)
+        },
+        sideActionButtons(state = initialState, action) {
+            console.log(action.payload)
+            // state[0].pages[0].elements
+            // state[0].pages[0].elements.type.push(action.payload)
+            // console.log(action.payload)
+            // const increment = action.payload.increment;
+            // console.log(increment)
+            // const data = action.payload.Data
+            // console.log({data})
+            // switch(action.payload){
+            //     case "Radiogroup":
+            //         state[0].pages[0].elements.push({
+            //             id: 1,
+            //             type: 'radio',
+            //             name: 'question'
+            //         })
+            //         break;
+            // }
+        },
+        pagesIndex(state = initialState, action) {
+
         }
     }
 })
-export const { titledata, Questions, deleteBox, duplicatePage, deleteMainBox } = pageSlice.actions
+export const { titledata, Questions, deleteBox, duplicatePage, deleteMainBox, sideActionButtons, changeType, pagesIndex } = pageSlice.actions
 export default pageSlice.reducer

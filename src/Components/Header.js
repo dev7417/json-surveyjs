@@ -23,7 +23,7 @@ export default function Header() {
             case "Preview":
                 console.log(data.title)
                 // setItem(data.content);
-                setComponent(<Preview/>)
+                setComponent(<Preview />)
                 break;
             case "Logic":
                 setComponent(<Logic />)

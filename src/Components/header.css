@@ -184,6 +184,21 @@ li {
     width: 80%;
 }
 
+.main_page_icons{
+    display: flex;
+    justify-content: flex-end;
+}
+.main_page_icons .main_page_icons_1{
+    padding: 0px 10px;
+}
+.main_page_icons .main_page_icons_1:hover{
+    cursor: pointer;
+    background-color: #f3f3f3;
+}
+.main_page_icons .main_page_icons_2:hover{
+    cursor: pointer;
+    background-color: #f3f3f3;
+}
 
 .survey_title {
     position: relative;
@@ -264,6 +279,17 @@ li {
 .question_div .question_input{
     width: 100%;
 }
+.crud_icons .crud_icon_dup{
+    padding-right: 10px;
+}
+.crud_icons .crud_icon_req{
+    margin-top: 7px;
+    padding-right: 10px;
+}
+.question_div .single_input_btn{
+    font-size: 13px;
+    border: none;
+}
 input[type=checkbox]{
 	height: 0;
 	width: 0;
@@ -321,14 +347,23 @@ label:active:after {
     border-radius: 4px;
 }
 .action_icons .Aicons{
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: space-between; */
+    visibility: hidden;
+}
+.question_box:hover .Aicons{
+    visibility: visible;
 }
 .action_icons .Aicons .crud_icons{
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
 }
-
+.visibility{
+    display: none;
+}
+.question_div , .question_box:hover + .visibility{
+display: block;
+}
 .pages_data {
     display: flex;
     flex-direction: column;
@@ -387,7 +422,7 @@ label:active:after {
 }
 
 .questions{
-    padding: 10px 20px;
+    padding: 0px 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -485,3 +520,11 @@ label:active:after {
 }
 
 /* Preview css ends here */
+
+/* Radio group Css Starts Here */
+.add-icons{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Radio group Css Ends Here */
